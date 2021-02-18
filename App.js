@@ -7,6 +7,11 @@ import Landing from "./Landing";
 export default function App() {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_FILMS" });
+  }, []);
+
   console.log({ state });
   return (
     <View style={styles.container}>
