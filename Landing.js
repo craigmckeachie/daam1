@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, ScrollView, FlatList } from "react-native";
+import { View, Text, Image } from "react-native";
+// import { host } from "./store/api_host_helper.js";
+import { host } from "./store/api_host_maker";
 
 export default function Landing({ films }) {
   return (
@@ -11,6 +13,12 @@ export default function Landing({ films }) {
       {films.map(film => {
         return (
           <View key={film.id}>
+            <Image
+              source={{ uri: `${host}/${film.poster_path}` }}
+              style={{ height: 100, width: 100 }}
+              resizeMode="contain"
+            />
+
             <Text>{film.title}</Text>
             <Text>{film.tagline}</Text>
           </View>
