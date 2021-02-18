@@ -12,10 +12,9 @@ export default function App() {
     dispatch({ type: "FETCH_FILMS_REQUEST" });
   }, []);
 
-  console.log({ state });
   return (
     <View style={styles.container}>
-      <Landing />
+      <Landing {...state} />
     </View>
   );
 }
