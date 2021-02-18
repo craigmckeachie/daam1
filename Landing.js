@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-// import { host } from "./store/api_host_helper.js";
 import { host } from "./store/api_host_maker";
 
 export default function Landing({ films }) {
