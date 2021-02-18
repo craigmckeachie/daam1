@@ -9,7 +9,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "FETCH_FILMS" });
+    dispatch({ type: "FETCH_FILMS_REQUEST" });
   }, []);
 
   console.log({ state });

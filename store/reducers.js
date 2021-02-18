@@ -1,10 +1,8 @@
 export const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_FILM":
-      return { ...state, films: [...state.films, action.film] };
+    case "FETCH_FILMS_SUCCESS":
+      return { ...state, films: [action.films] };
     default:
       return state;
   }
-
-  state;
 };
