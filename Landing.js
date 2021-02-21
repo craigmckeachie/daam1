@@ -4,7 +4,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { useDispatch } from "react-redux";
 import FilmBrief from "./FilmBrief";
 
-export default function Landing({ films, selected_date }) {
+export default function Landing({ films, selected_date, selected_film }) {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   function showDatepicker() {
@@ -15,6 +15,7 @@ export default function Landing({ films, selected_date }) {
     setShow(previousShow => !previousShow);
     dispatch({ type: "SET_SELECTED_DATE", date: currentDate });
   }
+  console.log({ selected_film });
   return (
     <SafeAreaView>
       <ScrollView>
@@ -38,7 +39,13 @@ export default function Landing({ films, selected_date }) {
           )}
         </View>
         {films.map(film => {
-          return <FilmBrief key={film.id} film={film} />;
+          return (
+            <FilmBrief
+              key={film.id}
+              film={film}
+              isSelected={film === selected_film}
+            />
+          );
         })}
       </ScrollView>
     </SafeAreaView>
