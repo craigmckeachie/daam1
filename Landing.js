@@ -10,6 +10,7 @@ import {
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useDispatch } from "react-redux";
 import FilmBrief from "./FilmBrief";
+import FilmDetails from "./FilmDetails";
 
 export default function Landing({
   films,
@@ -31,12 +32,7 @@ export default function Landing({
   return (
     <SafeAreaView>
       <Modal visible={show_film_details}>
-        <Text>
-          Film Detail: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptas aspernatur aliquam aut sapiente repellendus libero impedit
-          adipisci placeat voluptatibus saepe error sit pariatur, ipsum at
-          perspiciatis id obcaecati cum autem.
-        </Text>
+        <FilmDetails selected_date={selected_date} film={selected_film} />
 
         <Button
           title="Done"
