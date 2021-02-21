@@ -1,10 +1,22 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, ScrollView, Text, Button } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  ScrollView,
+  Text,
+  Button,
+  Modal
+} from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useDispatch } from "react-redux";
 import FilmBrief from "./FilmBrief";
 
-export default function Landing({ films, selected_date, selected_film }) {
+export default function Landing({
+  films,
+  selected_date,
+  selected_film,
+  show_film_details
+}) {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   function showDatepicker() {
@@ -15,9 +27,22 @@ export default function Landing({ films, selected_date, selected_film }) {
     setShow(previousShow => !previousShow);
     dispatch({ type: "SET_SELECTED_DATE", date: currentDate });
   }
-  console.log({ selected_film });
+
   return (
     <SafeAreaView>
+      <Modal visible={show_film_details}>
+        <Text>
+          Film Detail: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Voluptas aspernatur aliquam aut sapiente repellendus libero impedit
+          adipisci placeat voluptatibus saepe error sit pariatur, ipsum at
+          perspiciatis id obcaecati cum autem.
+        </Text>
+
+        <Button
+          title="Done"
+          onPress={() => dispatch({ type: "HIDE_FILM_DETAILS" })}
+        />
+      </Modal>
       <ScrollView>
         <View>
           <Text>Dinner And a Movie.</Text>

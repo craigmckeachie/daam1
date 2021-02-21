@@ -6,6 +6,10 @@ export const reducer = (state, action) => {
       return { ...state, selected_date: action.date };
     case "SET_SELECTED_FILM":
       return { ...state, selected_film: action.film };
+    case "SHOW_FILM_DETAILS":
+      return { ...state, show_film_details: true };
+    case "HIDE_FILM_DETAILS":
+      return { ...state, show_film_details: false };
     default:
       return state;
   }

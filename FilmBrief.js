@@ -7,6 +7,7 @@ export default function FilmBrief({ film }) {
   const dispatch = useDispatch();
   function selectThisFilm() {
     dispatch({ type: "SET_SELECTED_FILM", film });
+    dispatch({ type: "SHOW_FILM_DETAILS" });
   }
   return (
     <Pressable onPress={() => selectThisFilm()}>
