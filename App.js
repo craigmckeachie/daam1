@@ -14,6 +14,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="light-content" hidden={false} />
       <Landing {...state} />
     </View>
   );
