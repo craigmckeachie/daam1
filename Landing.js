@@ -5,12 +5,22 @@ import {
   ScrollView,
   Text,
   Button,
-  Modal
+  Modal,
+  Image,
+  StyleSheet
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useDispatch } from "react-redux";
 import FilmBrief from "./FilmBrief";
 import FilmDetails from "./FilmDetails";
+
+const styles = StyleSheet.create({
+  header: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center"
+  }
+});
 
 export default function Landing({
   films,
@@ -33,7 +43,6 @@ export default function Landing({
     <SafeAreaView>
       <Modal visible={show_film_details}>
         <FilmDetails selected_date={selected_date} film={selected_film} />
-
         <Button
           title="Done"
           onPress={() => dispatch({ type: "HIDE_FILM_DETAILS" })}
@@ -41,7 +50,13 @@ export default function Landing({
       </Modal>
       <ScrollView>
         <View>
-          <Text>Dinner And a Movie.</Text>
+          <View style={styles.header}>
+            <Image
+              source={require("./assets/daam-logo.png")}
+              style={{ width: 150, height: 84 }}
+            />
+            <Text>Dinner And a Movie.</Text>
+          </View>
           <Text>
             Tap a film to see the details. Pick a date to see showtimes
           </Text>

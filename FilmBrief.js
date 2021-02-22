@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, Pressable } from "react-native";
+import { View, Text, Image, Pressable, StyleSheet } from "react-native";
 import { host } from "./store/api_host_maker";
 import { useDispatch } from "react-redux";
 
@@ -11,7 +11,7 @@ export default function FilmBrief({ film }) {
   }
   return (
     <Pressable onPress={() => selectThisFilm()}>
-      <View key={film.id}>
+      <View key={film.id} style={styles.item}>
         <Image
           source={{ uri: `${host}/${film.poster_path}` }}
           style={{ height: 100, width: 100 }}
@@ -23,3 +23,10 @@ export default function FilmBrief({ film }) {
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  item: {
+    flexDirection: "row"
+    // flexWrap: "wrap"
+  }
+});
