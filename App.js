@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import Checkout from "./Checkout";
 import Landing from "./Landing";
+import PickSeats from "./PickSeats";
 
 export default function App() {
   const state = useSelector(state => state);
@@ -16,8 +17,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" hidden={true} />
-      <Landing {...state} />
+      {/* <Landing {...state} /> */}
       {/* <Checkout /> */}
+      <PickSeats />
     </View>
   );
 }
