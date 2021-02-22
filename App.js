@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" hidden={false} />
+      <StatusBar barStyle="light-content" hidden={true} />
       <Landing {...state} />
       {/* <Checkout /> */}
     </View>

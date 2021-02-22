@@ -13,6 +13,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { useDispatch } from "react-redux";
 import FilmBrief from "./FilmBrief";
 import FilmDetails from "./FilmDetails";
+import "./helpers/Date";
 
 const styles = StyleSheet.create({
   header: {
@@ -62,7 +63,7 @@ export default function Landing({
           </Text>
           <Button
             onPress={showDatepicker}
-            title={`Showing times for ${selected_date.toDateString()} `}
+            title={`Showing times for ${selected_date.toShowingDateString()} `}
           />
           {show && (
             <DateTimePicker
