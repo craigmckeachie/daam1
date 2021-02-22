@@ -14,11 +14,13 @@ export default function FilmBrief({ film }) {
       <View key={film.id} style={styles.item}>
         <Image
           source={{ uri: `${host}/${film.poster_path}` }}
-          style={{ height: 100, width: 100 }}
+          style={{ height: 150, width: 100 }}
           resizeMode="contain"
         />
-        <Text>{film.title}</Text>
-        <Text>{film.tagline}</Text>
+        <View style={styles.filmText}>
+          <Text>{film.title}</Text>
+          <Text>{film.tagline}</Text>
+        </View>
       </View>
     </Pressable>
   );
@@ -27,6 +29,8 @@ export default function FilmBrief({ film }) {
 const styles = StyleSheet.create({
   item: {
     flexDirection: "row"
-    // flexWrap: "wrap"
+  },
+  filmText: {
+    flex: 1
   }
 });
