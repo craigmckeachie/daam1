@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import Checkout from "./Checkout";
 import Landing from "./Landing";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" hidden={false} />
       <Landing {...state} />
+      {/* <Checkout /> */}
     </View>
   );
 }
