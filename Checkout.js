@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
+  View,
   KeyboardAvoidingView,
   Text,
   TextInput,
-  Button
+  Button,
+  StyleSheet
 } from "react-native";
 
 export default function Checkout(props) {
@@ -22,64 +24,32 @@ export default function Checkout(props) {
       <KeyboardAvoidingView behavior="position">
         <ScrollView>
           <Text>Checkout</Text>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            laudantium similique harum quos consequatur eaque! Quis harum cum
-            vel ducimus porro quam repellat, consequuntur officiis doloribus
-            atque libero fuga hic! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Fugiat laudantium similique harum quos consequatur
-            eaque! Quis harum cum vel ducimus porro quam repellat, consequuntur
-            officiis doloribus atque libero fuga hic! Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Fugiat laudantium similique harum quos
-            consequatur eaque! Quis harum cum vel ducimus porro quam repellat,
-            consequuntur officiis doloribus atque libero fuga hic! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Fugiat laudantium
-            similique harum quos consequatur eaque! Quis harum cum vel ducimus
-            porro quam repellat, consequuntur officiis doloribus atque libero
-            fuga hic! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat laudantium similique harum quos consequatur eaque! Quis harum
-            cum vel ducimus porro quam repellat, consequuntur officiis doloribus
-            atque libero fuga hic! Lorem ipsum dolor sit amet consectetur
-            adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing
-            elit. Illum facilis ullam dolorem temporibus ipsa, doloribus
-            aspernatur sapiente consequuntur a sit accusantium laudantium quas
-            molestias architecto placeat deleniti asperiores ex non? Lorem ipsum
-            dolor sit, amet consectetur adipisicing elit. Esse laudantium amet
-            quia dolores expedita rerum! Earum mollitia recusandae, culpa atque
-            accusantium pariatur officiis officia optio qui assumenda tempore
-            harum aperiam. Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit. Rem placeat consectetur nesciunt atque soluta voluptatum modi
-            in repellendus laboriosam molestiae maiores repellat voluptate,
-            recusandae, aperiam deserunt, sit earum quod. Alias? Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Fugiat laudantium
-            similique harum quos consequatur eaque! Quis harum cum vel ducimus
-            porro quam repellat, consequuntur officiis doloribus atque libero
-            fuga hic! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat laudantium similique harum quos consequatur eaque! Quis harum
-            cum vel ducimus porro quam repellat, consequuntur officiis doloribus
-            atque libero fuga hic! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Fugiat laudantium similique harum quos consequatur
-            eaque! Quis harum cum vel ducimus porro quam repellat, consequuntur
-            officiis doloribus atque libero fuga hic! Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Fugiat laudantium similique harum quos
-            consequatur eaque! Quis harum cum vel ducimus porro quam repellat,
-            consequuntur officiis doloribus atque libero fuga hic! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Fugiat laudantium
-            similique harum quos consequatur eaque! Quis harum cum vel ducimus
-            porro quam repellat, consequuntur officiis doloribus atque libero
-            fuga hic! Lorem ipsum dolor sit amet consectetur adipisicing Lorem
-            ipsum dolor sit amet consectetur, adipisicing elit. Illum facilis
-            ullam dolorem temporibus ipsa, doloribus aspernatur sapiente
-            consequuntur a sit accusantium laudantium quas molestias architecto
-            placeat deleniti asperiores ex non? Lorem ipsum dolor sit, amet
-            consectetur adipisicing elit. Esse laudantium amet quia dolores
-            expedita rerum! Earum mollitia recusandae, culpa atque accusantium
-            pariatur officiis officia optio qui assumenda tempore harum aperiam.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem
-            placeat consectetur nesciunt atque soluta voluptatum modi in
-            repellendus laboriosam molestiae maiores repellat voluptate,
-            recusandae, aperiam deserunt, sit earum quod. Alias.
-          </Text>
+          <View>
+            <View style={styles.row}>
+              <Text>Table 10, Seat 3</Text>
+              <Text>12.00</Text>
+            </View>
+            <View style={styles.row}>
+              <Text>Table 10, Seat 4</Text>
+              <Text>12.00</Text>
+            </View>
+            <View style={styles.row}>
+              <Text>Table 10, Seat 5</Text>
+              <Text>12.00</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={{ flex: 3, textAlign: "right" }}>Subtotal</Text>
+              <Text style={{ flex: 1, textAlign: "right" }}>36.00</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={{ flex: 3, textAlign: "right" }}>Tax</Text>
+              <Text style={{ flex: 1, textAlign: "right" }}>3.02</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={{ flex: 3, textAlign: "right" }}>Total</Text>
+              <Text style={{ flex: 1, textAlign: "right" }}>39.02</Text>
+            </View>
+          </View>
           <Text>First Name</Text>
           <TextInput value={firstName} onChangeText={setFirstName} />
           <Text>Last Name</Text>
@@ -108,3 +78,7 @@ export default function Checkout(props) {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  row: { flex: 1, flexDirection: "row", justifyContent: "space-between" }
+});

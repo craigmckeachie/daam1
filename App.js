@@ -18,8 +18,8 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" hidden={true} />
       {/* <Landing {...state} /> */}
-      {/* <Checkout /> */}
-      <PickSeats />
+      <Checkout />
+      {/* <PickSeats /> */}
     </View>
   );
 }
