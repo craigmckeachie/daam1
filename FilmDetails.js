@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import ShowingTimes from "./ShowingTimes";
 import { host } from "./store/api_host_maker";
+import Title from "./Title";
 
 export default function FilmDetails({ film, selected_date, showings = [] }) {
   showings = [
@@ -28,7 +29,7 @@ export default function FilmDetails({ film, selected_date, showings = [] }) {
             />
           </View>
           <ShowingTimes selected_date={selected_date} showings={showings} />
-          <Text>{film.title}</Text>
+          <Title>{film.title}</Title>
           <Text>{film.tagline}</Text>
           <Text>{film.homepage}</Text>
           <Text>{film.overview}</Text>

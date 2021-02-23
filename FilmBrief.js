@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, Pressable, StyleSheet } from "react-native";
 import { host } from "./store/api_host_maker";
 import { useDispatch } from "react-redux";
+import Title from "./Title";
 
 export default function FilmBrief({ film }) {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export default function FilmBrief({ film }) {
           resizeMode="contain"
         />
         <View style={styles.filmText}>
-          <Text>{film.title}</Text>
+          <Title>{film.title}</Title>
           <Text>{film.tagline}</Text>
         </View>
       </View>

@@ -7,15 +7,15 @@ import {
   SafeAreaView,
   Button
 } from "react-native";
+import Title from "./Title";
 import tables from "./assets/tables.json";
-
 
 export default function PickSeats() {
   return (
     <SafeAreaView>
       <View>
         <Text>Choose your seats for</Text>
-        <Text>Movie Title</Text>
+        <Title>Movie Title</Title>
         <Text>on</Text>
         <Text>{new Date().toShowingDateString()}</Text>
         <ScrollView>
