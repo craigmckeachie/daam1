@@ -41,7 +41,7 @@ const text = {
   subtitle: {
     fontSize: 20,
     fontWeight: "bold",
-    padding: spacing.l,
+    padding: spacing.m,
     color: colors.mainDark
   },
   normal: {

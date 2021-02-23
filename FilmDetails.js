@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import ShowingTimes from "./ShowingTimes";
 import { host } from "./store/api_host_maker";
+import { theme } from "./theme";
 import Title from "./Title";
 
 export default function FilmDetails({ film, selected_date, showings = [] }) {
@@ -36,7 +37,10 @@ export default function FilmDetails({ film, selected_date, showings = [] }) {
           <Text>Release date:{new Date(film.release_date).toDateString()}</Text>
           <Text>Duration: {film.runtime} minutes</Text>
           <View style={styles.rating}>
-            <Text>Rating {film.vote_average}/ 10</Text>
+            <Text style={theme.text.normal}>
+              Rating {film.vote_average}/{" "}
+              <Text style={theme.text.note}>10</Text>
+            </Text>
             <Text>{film.vote_count} votes</Text>
           </View>
         </View>
