@@ -10,6 +10,7 @@ import {
 import Title from "./Title";
 import tables from "./assets/tables.json";
 import { theme } from "./theme";
+import Table from "./Table";
 
 export default function PickSeats() {
   return (
@@ -25,26 +26,7 @@ export default function PickSeats() {
         </View>
         <ScrollView>
           {tables.map(table => (
-            <View key={table.id} style={styles.table}>
-              <Text style={theme.text.normal}>Table {table.table_number}</Text>
-
-              <View style={styles.seats}>
-                {table.seats.map(seat => (
-                  <Text
-                    style={[
-                      theme.text.normal,
-                      styles.seat,
-                      seat.status === "seatIsTaken"
-                        ? styles.selected
-                        : { fontWeight: "bold" }
-                    ]}
-                    key={seat._id}
-                  >
-                    Seat {seat.seat_number}
-                  </Text>
-                ))}
-              </View>
-            </View>
+            <Table key={table.id} table={table} />
           ))}
         </ScrollView>
         <View styles={styles.actionRow}>
@@ -61,28 +43,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: theme.spacing.l
   },
-  table: {
-    flexDirection: "column",
-    borderWidth: 0.5,
-    borderColor: theme.colors.altDark,
-    margin: theme.spacing.m,
-    padding: theme.spacing.m
-  },
-  seats: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    flexWrap: "wrap"
-  },
   actionRow: {
     flexDirection: "row",
     justifyContent: "flex-end"
-  },
-  seat: {
-    padding: theme.spacing.s,
-    margin: theme.spacing.s,
-    backgroundColor: theme.colors.altLight
-  },
-  selected: {
-    backgroundColor: "#FCD34D"
   }
 });
