@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 const palette = {
   grey50: "#F9FAFB",
   grey100: "#F3F4F6",
@@ -30,6 +31,7 @@ const text = {
     color: colors.mainDark
   },
   title: {
+    fontFamily: Platform.OS === "ios" ? "Helvetica" : "Roboto",
     fontSize: 24,
     fontWeight: "bold",
     marginTop: spacing.l,
