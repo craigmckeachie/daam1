@@ -18,9 +18,9 @@ export default function PickSeats() {
         <View style={styles.heading}>
           <Text style={theme.text.note}>Choose your seats for</Text>
           <Title>Movie Title</Title>
-          {/* <Text style={theme.text.note}>on</Text> */}
+          <Text style={theme.text.note}>on</Text>
           <Text style={theme.text.note}>
-            on {new Date().toShowingDateString()}
+            {new Date().toShowingDateString()}
           </Text>
         </View>
         <ScrollView>
@@ -30,7 +30,16 @@ export default function PickSeats() {
 
               <View style={styles.seats}>
                 {table.seats.map(seat => (
-                  <Text style={theme.text.normal} key={seat._id}>
+                  <Text
+                    style={[
+                      theme.text.normal,
+                      styles.seat,
+                      seat.status === "seatIsTaken"
+                        ? styles.selected
+                        : { fontWeight: "bold" }
+                    ]}
+                    key={seat._id}
+                  >
                     Seat {seat.seat_number}
                   </Text>
                 ))}
@@ -53,7 +62,11 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.l
   },
   table: {
-    flexDirection: "column"
+    flexDirection: "column",
+    borderWidth: 0.5,
+    borderColor: theme.colors.altDark,
+    margin: theme.spacing.m,
+    padding: theme.spacing.m
   },
   seats: {
     flexDirection: "row",
@@ -63,5 +76,13 @@ const styles = StyleSheet.create({
   actionRow: {
     flexDirection: "row",
     justifyContent: "flex-end"
+  },
+  seat: {
+    padding: theme.spacing.s,
+    margin: theme.spacing.s,
+    backgroundColor: theme.colors.altLight
+  },
+  selected: {
+    backgroundColor: "#FCD34D"
   }
 });
