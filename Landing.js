@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import FilmBrief from "./FilmBrief";
 import FilmDetails from "./FilmDetails";
 import "./helpers/Date";
+import { theme } from "./theme";
 
 const styles = StyleSheet.create({
   header: {
@@ -56,9 +57,9 @@ export default function Landing({
               source={require("./assets/daam-logo.png")}
               style={{ width: 150, height: 84 }}
             />
-            <Text>Dinner And a Movie.</Text>
+            <Text style={theme.text.title}>Dinner And a Movie.</Text>
           </View>
-          <Text>
+          <Text style={theme.text.normal}>
             Tap a film to see the details. Pick a date to see showtimes
           </Text>
           <Button
