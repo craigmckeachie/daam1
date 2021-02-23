@@ -32,20 +32,20 @@ const text = {
   },
   title: {
     fontFamily: Platform.OS === "ios" ? "Helvetica" : "Roboto",
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     marginTop: spacing.l,
     marginBottom: spacing.l,
     color: colors.mainDark
   },
   subtitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     padding: spacing.m,
     color: colors.mainDark
   },
   normal: {
-    fontSize: 18,
+    fontSize: 16,
     padding: spacing.s,
     color: colors.altDark
   },
@@ -53,10 +53,21 @@ const text = {
     fontSize: 14,
     padding: spacing.s,
     color: colors.altDark
+  },
+  input: {
+    fontFamily: Platform.OS === "ios" ? "Helvetica" : "Roboto",
+    borderColor: colors.altDark,
+    borderBottomWidth: 1,
+    borderWidth: 1,
+    minHeight: spacing.xxl,
+    marginBottom: spacing.m,
+    marginTop: spacing.m,
+    padding: spacing.s
   }
 };
 
 export const theme = {
   colors,
-  text
+  text,
+  spacing
 };

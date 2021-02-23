@@ -50,7 +50,7 @@ export default function Landing({
           onPress={() => dispatch({ type: "HIDE_FILM_DETAILS" })}
         />
       </Modal>
-      <ScrollView>
+      <ScrollView style={{ margin: theme.spacing.l }}>
         <View>
           <View style={styles.header}>
             <Image

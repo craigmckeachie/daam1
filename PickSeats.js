@@ -9,30 +9,37 @@ import {
 } from "react-native";
 import Title from "./Title";
 import tables from "./assets/tables.json";
+import { theme } from "./theme";
 
 export default function PickSeats() {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Choose your seats for</Text>
-        <Title>Movie Title</Title>
-        <Text>on</Text>
-        <Text>{new Date().toShowingDateString()}</Text>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1, margin: theme.spacing.xl }}>
+        <View style={styles.heading}>
+          <Text style={theme.text.note}>Choose your seats for</Text>
+          <Title>Movie Title</Title>
+          {/* <Text style={theme.text.note}>on</Text> */}
+          <Text style={theme.text.note}>
+            on {new Date().toShowingDateString()}
+          </Text>
+        </View>
         <ScrollView>
           {tables.map(table => (
             <View key={table.id} style={styles.table}>
-              <Text>Table {table.table_number}</Text>
+              <Text style={theme.text.normal}>Table {table.table_number}</Text>
 
               <View style={styles.seats}>
                 {table.seats.map(seat => (
-                  <Text key={seat._id}>Seat {seat.seat_number}</Text>
+                  <Text style={theme.text.normal} key={seat._id}>
+                    Seat {seat.seat_number}
+                  </Text>
                 ))}
               </View>
             </View>
           ))}
         </ScrollView>
         <View styles={styles.actionRow}>
-          <Button title="Check out" style={styles.checkout} />
+          <Button title="Check out" />
         </View>
       </View>
     </SafeAreaView>
@@ -40,6 +47,11 @@ export default function PickSeats() {
 }
 
 const styles = StyleSheet.create({
+  heading: {
+    flexDirection: "column",
+    alignItems: "center",
+    marginBottom: theme.spacing.l
+  },
   table: {
     flexDirection: "column"
   },
@@ -51,6 +63,5 @@ const styles = StyleSheet.create({
   actionRow: {
     flexDirection: "row",
     justifyContent: "flex-end"
-  },
-  checkout: {}
+  }
 });

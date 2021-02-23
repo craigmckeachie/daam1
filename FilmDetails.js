@@ -20,9 +20,9 @@ export default function FilmDetails({ film, selected_date, showings = [] }) {
     { id: 4, showing_time: new Date().setHours(7) }
   ];
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={{ margin: theme.spacing.s, flex: 1 }}>
+        <View style={{ flex: 1 }}>
           <View style={styles.posterContainer}>
             <Image
               source={{ uri: `${host}/${film.poster_path}` }}
@@ -31,17 +31,21 @@ export default function FilmDetails({ film, selected_date, showings = [] }) {
           </View>
           <ShowingTimes selected_date={selected_date} showings={showings} />
           <Title>{film.title}</Title>
-          <Text>{film.tagline}</Text>
-          <Text>{film.homepage}</Text>
-          <Text>{film.overview}</Text>
-          <Text>Release date:{new Date(film.release_date).toDateString()}</Text>
-          <Text>Duration: {film.runtime} minutes</Text>
+          <Text style={theme.text.normal}>{film.tagline}</Text>
+          <Text style={theme.text.normal}>{film.homepage}</Text>
+          <Text style={theme.text.normal}>{film.overview}</Text>
+          <Text style={theme.text.normal}>
+            Release date:{new Date(film.release_date).toDateString()}
+          </Text>
+          <Text style={theme.text.normal}>
+            Duration: {film.runtime} minutes
+          </Text>
           <View style={styles.rating}>
             <Text style={theme.text.normal}>
               Rating {film.vote_average}/{" "}
               <Text style={theme.text.note}>10</Text>
             </Text>
-            <Text>{film.vote_count} votes</Text>
+            <Text style={theme.text.normal}>{film.vote_count} votes</Text>
           </View>
         </View>
       </ScrollView>
@@ -55,8 +59,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   poster: {
-    width: 350,
-    height: 350,
+    width: 158,
+    height: 225,
+    margin: theme.spacing.m,
     resizeMode: "contain"
   },
   rating: {
