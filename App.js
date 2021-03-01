@@ -22,8 +22,12 @@ export default function App() {
     <NavigationContainer>
       <StatusBar barStyle="light-content" hidden={true} />
       <View style={styles.container}>
-        <Nav.Navigator>
+        <Nav.Navigator initialRouteName="Home">
           <Nav.Screen name="Home">{() => <Landing {...state} />}</Nav.Screen>
+          <Nav.Screen name="PickSeats">{() => <PickSeats />}</Nav.Screen>
+          <Nav.Screen name="Checkout">
+            {() => <Checkout {...state} />}
+          </Nav.Screen>
         </Nav.Navigator>
       </View>
     </NavigationContainer>
