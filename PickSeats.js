@@ -11,9 +11,10 @@ import Title from "./Title";
 import tables from "./assets/tables.json";
 import { theme } from "./theme";
 import Table from "./Table";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 export default function PickSeats() {
+  const navigation = useNavigation();
   const route = useRoute();
   const showing = route.params.showing;
   const showing_time = new Date(showing.showing_time);
@@ -35,7 +36,10 @@ export default function PickSeats() {
           ))}
         </ScrollView>
         <View styles={styles.actionRow}>
-          <Button title="Check out" />
+          <Button
+            title="Check out"
+            onPress={() => navigation.navigate("Checkout")}
+          />
         </View>
       </View>
     </SafeAreaView>
