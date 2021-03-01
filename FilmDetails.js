@@ -14,10 +14,10 @@ import Title from "./Title";
 
 export default function FilmDetails({ film, selected_date, showings = [] }) {
   showings = [
-    { id: 1, showing_time: new Date().setHours(1) },
-    { id: 2, showing_time: new Date().setHours(3) },
-    { id: 3, showing_time: new Date().setHours(5) },
-    { id: 4, showing_time: new Date().setHours(7) }
+    { id: 1, showing_time: new Date().setHours(13) },
+    { id: 2, showing_time: new Date().setHours(16) },
+    { id: 3, showing_time: new Date().setHours(17) },
+    { id: 4, showing_time: new Date().setHours(19) }
   ];
   return (
     <SafeAreaView style={{ flex: 1 }}>

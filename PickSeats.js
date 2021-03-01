@@ -11,8 +11,13 @@ import Title from "./Title";
 import tables from "./assets/tables.json";
 import { theme } from "./theme";
 import Table from "./Table";
+import { useRoute } from "@react-navigation/native";
 
 export default function PickSeats() {
+  const route = useRoute();
+  const showing = route.params.showing;
+  const showing_time = new Date(showing.showing_time);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, margin: theme.spacing.xl }}>
@@ -21,7 +26,7 @@ export default function PickSeats() {
           <Title>Movie Title</Title>
           <Text style={theme.text.note}>on</Text>
           <Text style={theme.text.note}>
-            {new Date().toShowingDateString()}
+            {`${showing_time.toShowingDateString()} at ${showing_time.toShowingTimeString()}`}
           </Text>
         </View>
         <ScrollView>
