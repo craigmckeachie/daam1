@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   SafeAreaView,
@@ -12,13 +13,14 @@ import {
 import { theme } from "./theme";
 
 export default function Checkout(props) {
+  const navigation = useNavigation();
   const [firstName, setFirstName] = useState(props.firstName);
   const [lastName, setLastName] = useState(props.lastName);
   const [creditCard, setCreditCard] = useState(props.creditCard);
   const [email, setEmail] = useState(props.email);
   const [phone, setPhone] = useState(props.phone);
   function purchase() {
-    console.log("purchased tickets");
+    navigation.navigate("Ticket");
   }
   return (
     <SafeAreaView>

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Checkout from "./Checkout";
 import Landing from "./Landing";
 import PickSeats from "./PickSeats";
+import Ticket from "./Ticket";
 
 const Nav = createStackNavigator();
 
@@ -28,6 +29,7 @@ export default function App() {
           <Nav.Screen name="Checkout">
             {() => <Checkout {...state} />}
           </Nav.Screen>
+          <Nav.Screen name="Ticket">{() => <Ticket />}</Nav.Screen>
         </Nav.Navigator>
       </View>
     </NavigationContainer>

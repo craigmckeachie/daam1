@@ -6,6 +6,7 @@ const initialState = {
   films: [],
   selected_date: new Date(),
   selected_film: {},
+  selected_showing: null,
   show_film_details: false,
   showings: [],
   tables: []

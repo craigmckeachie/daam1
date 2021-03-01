@@ -10,6 +10,7 @@ export default function ShowingTimes({ selected_date, showings }) {
   const navigation = useNavigation();
   function pickShowingTime(showing) {
     dispatch({ type: "HIDE_FILM_DETAILS" });
+    dispatch({ type: "SET_SELECTED_SHOWING", selected_showing: showing });
     navigation.push("PickSeats", { showing });
   }
   return (
