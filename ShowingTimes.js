@@ -13,7 +13,6 @@ export default function ShowingTimes({ selected_date, showings = [] }) {
     dispatch({ type: "SET_SELECTED_SHOWING", selected_showing: showing });
     navigation.push("PickSeats", { showing });
   }
-  console.log(showings);
   return (
     <View style={styles.container}>
       <Text style={{ ...theme.text.subtitle, textAlign: "center" }}>
@@ -40,6 +39,7 @@ const styles = StyleSheet.create({
   },
   showings: {
     flexDirection: "row",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    flexWrap: "wrap"
   }
 });

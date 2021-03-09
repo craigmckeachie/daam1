@@ -26,7 +26,6 @@ export default function Ticket() {
   const film = useSelector(state => state.selected_film);
   const showing = useSelector(state => state.selected_showing);
   const showing_time = new Date(showing.showing_time);
-  console.log(film);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

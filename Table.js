@@ -10,7 +10,7 @@ export default function Table({ table }) {
 
       <View style={styles.seats}>
         {table.seats.map(seat => (
-          <Seat seat={seat} key={seat._id} />
+          <Seat seat={seat} key={seat.id} />
         ))}
       </View>
     </View>

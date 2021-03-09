@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -8,16 +8,25 @@ import {
   Button
 } from "react-native";
 import Title from "./Title";
-import tables from "./assets/tables.json";
 import { theme } from "./theme";
 import Table from "./Table";
 import { useRoute, useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function PickSeats() {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const route = useRoute();
   const showing = route.params.showing;
   const showing_time = new Date(showing.showing_time);
+  const tables = useSelector(state => state.tables);
+
+  useEffect(() => {
+    dispatch({
+      type: "FETCH_TABLES_AND_SEATS",
+      theater_id: showing.theater_id
+    });
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

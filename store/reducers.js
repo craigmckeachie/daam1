@@ -10,6 +10,8 @@ export const reducer = (state, action) => {
       return { ...state, selected_showing: action.selected_showing };
     case "SET_SHOWINGS":
       return { ...state, showings: action.showings };
+    case "SET_TABLES":
+      return { ...state, tables: action.tables };
     case "SHOW_FILM_DETAILS":
       return { ...state, show_film_details: true };
     case "HIDE_FILM_DETAILS":
