@@ -28,7 +28,8 @@ export default function Landing({
   films,
   selected_date,
   selected_film,
-  show_film_details
+  show_film_details,
+  showings = []
 }) {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
@@ -44,7 +45,11 @@ export default function Landing({
   return (
     <SafeAreaView>
       <Modal visible={show_film_details}>
-        <FilmDetails selected_date={selected_date} film={selected_film} />
+        <FilmDetails
+          selected_date={selected_date}
+          film={selected_film}
+          showings={showings}
+        />
         <Button
           title="Done"
           onPress={() => dispatch({ type: "HIDE_FILM_DETAILS" })}

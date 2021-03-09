@@ -5,7 +5,7 @@ import { theme } from "./theme";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
-export default function ShowingTimes({ selected_date, showings }) {
+export default function ShowingTimes({ selected_date, showings = [] }) {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   function pickShowingTime(showing) {
@@ -13,6 +13,7 @@ export default function ShowingTimes({ selected_date, showings }) {
     dispatch({ type: "SET_SELECTED_SHOWING", selected_showing: showing });
     navigation.push("PickSeats", { showing });
   }
+  console.log(showings);
   return (
     <View style={styles.container}>
       <Text style={{ ...theme.text.subtitle, textAlign: "center" }}>
