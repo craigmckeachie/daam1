@@ -8,7 +8,7 @@ export default function Seat({ seat }) {
       style={[
         theme.text.normal,
         styles.seat,
-        seat.status === "seatIsTaken" ? styles.selected : { fontWeight: "bold" }
+        seat.status === "seatIsTaken" ? styles.reserved : { fontWeight: "bold" }
       ]}
     >
       Seat {seat.seat_number}
@@ -18,11 +18,12 @@ export default function Seat({ seat }) {
 
 const styles = StyleSheet.create({
   seat: {
+    ...theme.text.normal,
     padding: theme.spacing.s,
     margin: theme.spacing.s,
     backgroundColor: theme.colors.altLight
   },
-  selected: {
+  reserved: {
     backgroundColor: "#FCD34D"
   }
 });

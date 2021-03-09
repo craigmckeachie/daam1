@@ -20,6 +20,7 @@ const fetchShowingsForDateMiddleware = ({
   ) {
     const selected_date = getState().selected_date.toISOString().split("T")[0];
     const film_id = getState().selected_film.id;
+    console.log(`${host}/api/showings/${film_id}/${selected_date}`);
     fetch(`${host}/api/showings/${film_id}/${selected_date}`)
       .then(res => res.json())
       .then(showings => dispatch({ type: "SET_SHOWINGS", showings: showings }))
@@ -30,6 +31,7 @@ const fetchShowingsForDateMiddleware = ({
 const fetchTablesAndSeatsMiddleware = ({ dispatch }) => next => action => {
   const { theater_id } = action;
   if (action.type === "FETCH_TABLES_AND_SEATS") {
+    console.log(`${host}/api/theaters/${theater_id}/tables`);
     fetch(`${host}/api/theaters/${theater_id}/tables`)
       .then(res => res.json())
       .then(tables => dispatch({ type: "SET_TABLES", tables }))

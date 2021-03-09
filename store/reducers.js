@@ -13,7 +13,16 @@ export const reducer = (state, action) => {
     case "SET_TABLES":
       return { ...state, tables: action.tables };
     case "SET_RESERVATIONS":
-      return { ...state, reservations: action.reservations };
+      tables = state.tables.map(table => {
+        seats = table.seats.map(seat => {
+          if (action.reservations?.some(res => res.seat_id === seat.id)) {
+            return { ...seat, status: "seatIsTaken" };
+          }
+          return { ...seat };
+        });
+        return { ...table, seats: seats };
+      });
+      return { ...state, tables };
     case "SHOW_FILM_DETAILS":
       return { ...state, show_film_details: true };
     case "HIDE_FILM_DETAILS":

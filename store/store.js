@@ -9,7 +9,8 @@ const initialState = {
   selected_showing: null,
   show_film_details: false,
   showings: [],
-  tables: []
+  tables: [],
+  reservations: []
 };
 
 export const store = createStore(

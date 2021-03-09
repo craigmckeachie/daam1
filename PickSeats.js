@@ -20,8 +20,8 @@ export default function PickSeats() {
   const showing = route.params.showing;
   const showing_time = new Date(showing.showing_time);
   const tables = useSelector(state => state.tables);
-  const reservations = useSelector(state => state.reservations);
-  console.log(reservations);
+  const selected_film = useSelector(state => state.selected_film);
+  const selected_date = useSelector(state => state.selected_date);
 
   useEffect(() => {
     dispatch({
@@ -36,10 +36,12 @@ export default function PickSeats() {
       <View style={{ flex: 1, margin: theme.spacing.xl }}>
         <View style={styles.heading}>
           <Text style={theme.text.note}>Choose your seats for</Text>
-          <Title>Movie Title</Title>
+          <Title>{selected_film.title}</Title>
           <Text style={theme.text.note}>on</Text>
           <Text style={theme.text.note}>
-            {`${showing_time.toShowingDateString()} at ${showing_time.toShowingTimeString()}`}
+            {`${new Date(
+              selected_date
+            ).toShowingDateString()} at ${showing_time.toShowingTimeString()}`}
           </Text>
         </View>
         <ScrollView>
