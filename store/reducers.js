@@ -12,6 +12,8 @@ export const reducer = (state, action) => {
       return { ...state, showings: action.showings };
     case "SET_TABLES":
       return { ...state, tables: action.tables };
+    case "SET_RESERVATIONS":
+      return { ...state, reservations: action.reservations };
     case "SHOW_FILM_DETAILS":
       return { ...state, show_film_details: true };
     case "HIDE_FILM_DETAILS":

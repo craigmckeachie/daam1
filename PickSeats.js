@@ -20,12 +20,15 @@ export default function PickSeats() {
   const showing = route.params.showing;
   const showing_time = new Date(showing.showing_time);
   const tables = useSelector(state => state.tables);
+  const reservations = useSelector(state => state.reservations);
+  console.log(reservations);
 
   useEffect(() => {
     dispatch({
       type: "FETCH_TABLES_AND_SEATS",
       theater_id: showing.theater_id
     });
+    dispatch({ type: "FETCH_RESERVATIONS", showing_id: showing.id });
   }, []);
 
   return (

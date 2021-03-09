@@ -38,8 +38,22 @@ const fetchTablesAndSeatsMiddleware = ({ dispatch }) => next => action => {
   return next(action);
 };
 
+const fetchReservationsMiddleware = ({ dispatch }) => next => action => {
+  if (action.type === "FETCH_RESERVATIONS") {
+    const id = action.showing_id;
+    fetch(`${host}/api/showings/${id}/reservations/`)
+      .then(res => res.json())
+      .then(reservations =>
+        dispatch({ type: "SET_RESERVATIONS", reservations })
+      )
+      .catch(err => console.error("Couldn't fetch reservations", err));
+  }
+  next(action);
+};
+
 export default [
   fetchFilmsMiddleware,
   fetchShowingsForDateMiddleware,
-  fetchTablesAndSeatsMiddleware
+  fetchTablesAndSeatsMiddleware,
+  fetchReservationsMiddleware
 ];
